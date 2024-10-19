@@ -1,0 +1,199 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f7ff;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .barra-status {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .status-box {
+   
+    padding: 15px;
+    width: 150px;
+    height: 60px;
+    text-align: center;
+    background-color: #FFF  ;
+    color: #008791;
+    font-weight: 900;
+    border: 2px solid #008791;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra do botão */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .secao-busca {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .input-busca {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border-color: #008791;
+    
+  }
+  
+  .botao-busca {
+    padding: 10px 15px;
+    background-color: #008791; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 900;
+    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .tabela {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20vh; 
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #008791;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffffff; /* Selecionando todas as linhas da tabela e as pares com bkground cinza c */
+  }
+  
+  .status-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    gap: 8px; /* Espaçamento entre a bolinha e o texto */
+}
+
+.disponivel {
+    height: 15px;
+    width: 15px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.indisponivel {
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+
+
+.status-box2 {
+  padding: 10px;
+  width: 120px; /* Largura do botão */
+  height: 40px; /* Altura do botão */
+  text-align: center;
+  background-color: #008791; /* Cor de fundo */
+  color: #ffffff; /* Cor do texto */
+  font-weight: 900; /* Peso da fonte */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra do botão */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Fonte */
+  cursor: pointer; /* Cursor ao passar o mouse */
+  border: none; /* Remove a borda padrão */
+}
+
+
+.botao-status {
+    padding: 25px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+
+.rodape{
+  text-align: center;
+  margin-top: 70vh;
+
+}
+  
+.cadastro-kit {
+  display: flex;
+  justify-content: right; /* Centraliza horizontalmente */
+  margin-top: -100px; /* Espaçamento superior */
+}
+
+.botao-cadastrar {
+  background-color: #FFF; /* Cor de fundo clara */
+  border: 2px solid #008791; /* Borda suave */
+  border-radius: 5px; /* Bordas arredondadas */
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 16px; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  transition: background-color 0.3s, transform 0.2s; /* Transições suaves */
+}
+
+.botao-cadastrar:hover {
+  background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+  transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+.menu {
+  display: none; /* Esconde o menu por padrão */
+  background-color: #FFF; /* Cor de fundo do menu */
+  border: 2px solid #008791; /* Borda do menu */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra do menu */
+  position: absolute; /* Para posicionar o menu se necessário */
+  z-index: 1; /* Para garantir que o menu fique acima de outros elementos */
+}
+
+.menu ul {
+  list-style: none;
+  padding: 10px; /* Espaçamento interno */
+  margin: 0;
+}
+
+.menu li {
+  padding: 10px; /* Espaçamento interno dos itens */
+}
+
+.menu li a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: #008791; /* Cor do texto do link */
+  font-weight: 900; /* Peso da fonte */
+}
+
+.menu.oculto {
+  display: none; /* Classe para esconder o menu */
+}
+
+.menu.visivel {
+  display: block; /* Classe para mostrar o menu */
+}
+
+.botao-fechar {
+  cursor: pointer;
+  position: absolute;
+  right: 10px; /* Distância da borda direita */
+  top: 10px; /* Distância da borda superior */
+  background: none; /* Sem fundo */
+  border: none; /* Sem borda */
+  font-size: 18px; /* Tamanho da fonte */
+  color: #008791; /* Cor do texto */
+}
+
+

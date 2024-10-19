@@ -1,0 +1,106 @@
+* {
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o padding padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui padding e bordas no tamanho total dos elementos */
+}
+
+body {
+    background-image: url("../imagens/axo\ logaaa.png");
+    background-size: cover;
+    background-position: center; /* Alinha a imagem à esquerda */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.container {
+    background: transparent; /* Fundo transparente para o container */
+    width: 420px; /* Largura do container */
+    border: 2px solid rgba(255, 255, 255, 0.952); /* Borda sólida com opacidade */
+    backdrop-filter: blur(20px); /* Aplica um desfoque no fundo do container */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 30px 40px; /* Padding interno: 30px em cima e embaixo, 40px nas laterais */
+}
+
+h1 {
+    font-size: 36px; /* Tamanho da fonte do título */
+    text-align: center; /* Alinha o texto ao centro */
+    color: #fff; /* Cor do texto */
+}
+
+.input-email {
+    position: relative; /* Posiciona o elemento de forma relativa para posicionar seus filhos */
+    width: 100%; /* Largura total do elemento */
+    height: 50px; /* Altura do elemento */
+    margin: 30px 0; /* Margem superior e inferior de 30px */
+}
+
+.input-email input {
+    width: 100%; /* Largura total do input */
+    height: 100%; /* Altura total do input */
+    background: transparent; /* Fundo transparente para o input */
+    border: none; /* Remove a borda padrão do input */
+    outline: none; /* Remove o contorno padrão do input ao receber foco */
+    border: 2px solid rgba(255, 255, 255, 0.952); /* Borda sólida com opacidade */
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte do texto do input */
+    color: #fff; /* Cor do texto */
+    padding: 20px 45px 20px 20px; /* Padding interno: 20px em cima e embaixo, 45px à direita, 20px à esquerda */
+}
+
+.input-email input::placeholder {
+    color: #fff; /* Cor do texto do placeholder */
+}
+
+.input-email a {
+    font-size: 16px; /* Tamanho da fonte do link */
+    margin-top: 5px; /* Margem superior de 5px */
+    color: #fff; /* Cor do texto do link */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+}
+
+.input-email a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.botao {
+    width: 100%; /* Largura total do botão */
+    height: 50px; /* Altura do botão */
+    background-color: #66B6D4; /* Cor de fundo do botão */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 10px; /* Bordas arredondadas */
+    color: #fff; /* Cor do texto do botão */
+    font-weight: 600; /* Peso da fonte do texto do botão */
+    margin-top: 24px; /* Margem superior de 24px */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    outline: none; /* Remove o contorno padrão do botão ao receber foco */
+    font-size: 16px; /* Tamanho da fonte do botão */
+}
+
+.botao:hover {
+    background-color: #48859b; /* Cor de fundo ao passar o mouse */
+}
+
+.registro {
+    text-align: center; /* Alinha o texto ao centro */
+    margin: 20px 0; /* Margem superior e inferior de 20px */
+}
+
+.registro p {
+    font-size: 16px; /* Tamanho da fonte do parágrafo */
+    color: #fff; /* Cor do texto */
+    font-weight: 500; /* Peso da fonte do texto */
+}
+
+.registro p a {
+    font-size: 16px; /* Tamanho da fonte do link */
+    color: #fff; /* Cor do texto do link */
+    font-weight: 700; /* Peso da fonte do link */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+}
+
+.registro p a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}    
