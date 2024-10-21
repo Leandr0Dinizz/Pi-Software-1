@@ -1,10 +1,12 @@
 <?php
-    include('../class/Usuario.php');
+    include('class/Conexao.php');
+    include('class/Usuario.php');
+    
     
     $Usuario = new Usuario();
         
     if(isset($_POST['btnLogar'])){
-        $Usuario->logar($_POST['Login'], $_POST['Senha']);
+        $Usuario->logar($_POST['login'], $_POST['senha']);
     }
 
     session_start();
@@ -21,26 +23,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Tela de Login</title>
 </head>
 <body>
     <div class="container">
-        <form>
+        <form method="POST" action="?">
             <h1>Login</h1>
 
             <div class="input-email">
-                <input type="text" placeholder="login" required>
+                <input type="text" name="login" placeholder="login" required>
             </div>
 
             <div class="input-email">
-                <input type="password" placeholder="senha" required>
+                <input type="password" name="senha" placeholder="senha" required>
             </div>
 
-            <button type="submit" class="botao" href="../php/index.php">Entrar</button>
+            <button type="submit" class="botao" name="btnLogar">Entrar</button>
 
             <div class="registro">
-                <p>Não está cadastrado? <a href="../php/cadastro.php">Cadastrar</a></p>
+                <p>Não está cadastrado? <a href="cadastro.php">Cadastrar</a></p>
             </div>
 
         </form>

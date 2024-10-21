@@ -54,11 +54,13 @@ window.onclick = function(event) {
 
 // Abre o modal correspondente ao clicar nas opções do menu
 document.getElementById('btnCadastrarKitModal').onclick = function() {
+    document.getElementById('modalCadastrarDocente').style.display = "flex"; // Usa flex para centralizar
     fecharModal(menu); // Fecha o menu
     abrirModal(modalCadastrarKit);
 };
 
 document.getElementById('btnCadastrarDocenteModal').onclick = function() {
+    document.getElementById('modalCadastrarDocente').style.display = "none";
     fecharModal(menu); // Fecha o menu
     abrirModal(modalCadastrarDocente);
 };

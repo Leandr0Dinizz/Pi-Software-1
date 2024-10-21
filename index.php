@@ -1,10 +1,18 @@
 <?php
-    include('../class/classes.php');
+    include('class/classes.php');
     
-    $Kit = new Kit();
+    $Kits = new Kit();
+    $Usuario = new Usuario();
+    $Docente = new Docente();
         
+    //Cadastrar kit
     if(isset($_POST['btnCadastrar'])){
-        $Kit->cadastrarKit($_POST);
+        $Kits->cadastrarKit($_POST);        
+    }
+
+    //Cadastrar Docente        
+    if(isset($_POST['btnCadastrarDocente'])){
+        $Docente->cadastrar($_POST);
     }
 
 ?>
@@ -15,16 +23,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Kits</title>
-    <link rel="stylesheet" href="../css/Kits.css">
-    <link rel="stylesheet" href="../css/modal.css">
-    <script src="../funcoes.js" defer></script>
+    <link rel="stylesheet" href="css/Kits.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="funcoes.js" defer></script>
 </head>
 <body>
 
 <section class="barra-status">
-    <div class="status-box" role="status">Disponíveis</div>
-    <div class="status-box" role="status">Indisponíveis</div>
+    <div class="status-box">
+        <div class="disponivel"></div>
+        <span>Disponíveis</span>
+        <span class="quantidade" id="quantidade-disponiveis"><?php echo $Kits->contarKitsDisponiveis()?></span>
+    </div>
+    <div class="status-box">
+        <div class="indisponivel"></div>
+        <span>Indisponíveis</span>
+        <span class="quantidade" id="quantidade-indisponiveis"><?php echo $Kits->contarKitsIndisponiveis()?></span>
+    </div>
 </section>
+
 
    
 
@@ -33,9 +50,10 @@
     <div id="menu" class="menu oculto">
         <button class="botao-fechar" id="btnFecharMenu">&times;</button>
         <ul>
-            <li><a href="#" id="btnCadastrarKitModal">Cadastrar Kit</a></li>
-            <li><a href="#" id="btnCadastrarDocenteModal">Cadastrar Docente</a></li>
-            <li><a href="#" id="btnAtualizarDadosModal">Atualizar Dados</a></li>
+            <li><a  id="btnAtualizarDadosModal" style="display: none;">Atualizar Dados</a></li>
+            <li><a  id="btnCadastrarKitModal">Cadastrar Kit</a></li>
+            <li><a  id="btnCadastrarDocenteModal">Cadastrar Docente</a></li>
+            <li><a  href="sair.php">Sair</a></li>
         </ul>
     </div>
 </section>
@@ -65,19 +83,44 @@
     <div class="modal-content">
         <span class="close" id="closeCadastrarDocente">&times;</span>
         <h2>Cadastrar Docente</h2>
-        <form id="cadastrar-docente-form">
+        <form id="cadastrar-docente-form" method="POST" action="?">
             <div class="input-group">
                 <label for="nomeDocente">Nome:</label>
-                <input type="text" id="nomeDocente" class="modal-input" placeholder="Nome" required>
+                <input type="text" id="nomeDocente" name="nome" class="modal-input" placeholder="Nome" required>
+            </div>
+            <div class="input-group">
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="data_nascimento" class="modal-input" required>
+            </div>
+            <div class="input-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" class="modal-input" placeholder="Telefone" required>
+            </div>
+            <div class="input-group">
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" class="modal-input" placeholder="CEP" required>
+            </div>
+            <div class="input-group">
+                <label for="turno">Turno:</label>
+                <select id="turno" name="turno" class="modal-input" required>
+                    <option value="manhã">Manhã</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noite">Noite</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="codigoBarras">Código de Barras:</label>
+                <input type="text" id="codigoBarras" name="codigo_barras" class="modal-input" placeholder="Código de Barras" required>
             </div>
             <div class="input-group">
                 <label for="cpfDocente">CPF:</label>
-                <input type="text" id="cpfDocente" class="modal-input" placeholder="CPF" required>
+                <input type="text" id="cpfDocente" name="cpf" class="modal-input" placeholder="CPF" required>
             </div>
-            <button type="submit" class="modal-button">Cadastrar</button>
+            <button type="submit" name="btnCadastrarDocente" class="modal-button">Cadastrar</button>
         </form>
     </div>
 </div>
+
 
 
 <div id="modalAtualizarDados" class="modal">
@@ -99,8 +142,7 @@
 
 
 <section class="secao-busca">
-    <input type="text" class="input-busca" placeholder="Buscar..." aria-label="Campo de busca">
-    <button class="botao-busca" type="button">BUSCAR</button>
+    <input type="text" id="buscar_kit" class="input-busca" placeholder="Buscar..." aria-label="Campo de busca">
 </section>
 
 <section class="tabela">
@@ -112,6 +154,15 @@
                 <th>Situação</th>
             </tr>
         </thead>
+        <tbody>
+            <?php foreach ($Kits->listar() as $kit): ?>
+                <tr>
+                    <td><?php echo $kit->n_sala; ?></td>
+                    <td><?php echo $Kits->obterDocenteEmUso($kit->id_kit)?></td>
+                    <td><?php Helper::mostrarSituacao($kit->situacao)?></td>
+                </tr>
+            <?php endforeach; ?>    
+        </tbody>
     </table>
 </section>
 
@@ -183,6 +234,25 @@
 </body>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
+        $(document).ready(function() {
+    // Verifica se o parâmetro de status está presente na URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('sc') && urlParams.get('sc') === 'true') {
+        alert('Cadastro realizado com sucesso!');
         
-    </script>
+        // Limpa todos os parâmetros da URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+        
+        // Função de filtro para a tabela
+        $('#buscar_kit').on('input', function() {
+            var valor = $(this).val().toLowerCase(); // Obtém o valor do input e converte para minúsculas
+            $('table tbody tr').filter(function() {
+                // Mostra as linhas que contêm o valor e esconde as que não contêm
+                $(this).toggle($(this).find('td').first().text().toLowerCase().indexOf(valor) > -1);
+            });
+        });
+    });
+</script>
+
 </html>

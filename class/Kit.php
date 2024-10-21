@@ -49,7 +49,8 @@ class Kit {
         $sql->bindParam(':descricao', $descricao);
         $sql->execute();
 
-        echo ("<script>alert('Kit ".$dados['n_sala']." cadastrado com sucesso')</script>");
+        
+        return header('location: index.php?sc=true');
     }
 
     /**
@@ -109,6 +110,45 @@ class Kit {
         $sql->execute();
     }
 
+    public function obterDocenteEmUso(int $id_kit)
+    {
+        $sql = $this->pdo->prepare('
+            SELECT d.nome 
+            FROM entradas_saidas es
+            JOIN docentes d ON es.id_docente = d.id_docente
+            WHERE es.id_kit = :id_kit AND es.data_saida IS NULL
+        ');
+        
+        $sql->bindParam(':id_kit', $id_kit);
+        $sql->execute();
+
+        // Pega os dados retornados
+        $docente = $sql->fetch(PDO::FETCH_OBJ);
+
+        // Retorna o nome do docente se existir, ou null se não houver
+        return $docente ? $docente->nome : null;
+    }
+
+    public function contarKitsDisponiveis()
+    {
+        $sql = $this->pdo->prepare('SELECT COUNT(*) as total FROM kits WHERE situacao = 1');
+        $sql->execute();
+
+        $resultado = $sql->fetch(PDO::FETCH_OBJ);
+        return $resultado->total;
+    }
+
+    public function contarKitsIndisponiveis()
+    {
+        $sql = $this->pdo->prepare('SELECT COUNT(*) as total FROM kits WHERE situacao = 2');
+        $sql->execute();
+
+        $resultado = $sql->fetch(PDO::FETCH_OBJ);
+        return $resultado->total;
+    }
+
+
+    
  }
 
 ?>

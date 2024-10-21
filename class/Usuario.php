@@ -169,6 +169,7 @@ class Usuario {
 
         $user = $sql->fetch(PDO::FETCH_OBJ);
 
+
         session_start();
 
         if ($user) {

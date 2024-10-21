@@ -10,19 +10,28 @@ body {
     justify-content: space-around;
     margin-bottom: 20px;
   }
+
+ 
+  .quantidade {
+    font-weight: bold; /* Para destacar a quantidade */
+    font-size: 24px;
+    color: #333;
+  }
   
   .status-box {
-   
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente */
     padding: 15px;
     width: 150px;
-    height: 60px;
+    height: 80px; /* Aumenta a altura para acomodar o valor embaixo */
     text-align: center;
-    background-color: #FFF  ;
+    background-color: #FFF;
     color: #008791;
     font-weight: 900;
     border: 2px solid #008791;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra do botão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   

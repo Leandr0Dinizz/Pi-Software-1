@@ -212,6 +212,25 @@ public static function sobeArquivo($arquivo,$diretorio = '../imagens/'){
         }
     }
 
+    public static function mostrarSituacao($situacao){
+      switch ($situacao) {
+        case 1:
+          echo('Disponível');
+          break;
+        case 2:
+          echo('Indisponível');
+          break; 
+        case 2:
+          echo('Manutenção');
+          break;    
+        default:
+          echo('Erro!');
+          break;
+      }
+    }
+
+
+
 }
 
 ?>

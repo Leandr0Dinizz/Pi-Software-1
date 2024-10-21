@@ -1,5 +1,5 @@
 <?php
-    include('../class/classes.php');
+    include('class/classes.php');
     
     $Usuario = new Usuario();
         
@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
 
@@ -34,10 +34,6 @@
             </div>
 
             <div class="input-email">
-                <input type="text" name="turno" placeholder="Turno" required>
-            </div>
-
-            <div class="input-email">
                 <input type="date" name="data_nascimento" placeholder="Data de Nascimento" required>
             </div>
 
@@ -50,15 +46,11 @@
             </div>
 
             <div class="input-email">
-                <input type="text" name="codigo_barras" placeholder="Nº Registro">
-            </div>
-
-            <div class="input-email">
                 <input type="text" name="login" placeholder="Login">
             </div>
 
             <div class="input-email">
-                <input type="text" name="senha" placeholder="Senha">
+                <input type="password" name="senha" placeholder="Senha">
             </div>
 
             <button type="submit" name="btnEntrar" class="botao">Entrar</button>
