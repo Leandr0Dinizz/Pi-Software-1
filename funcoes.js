@@ -130,3 +130,6 @@ window.onload = function() {
     fecharModal(modalCadastrarDocente);
     menu.style.display = 'none'; // Garante que o menu esteja fechado
 };
+
+
+

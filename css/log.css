@@ -1,0 +1,26 @@
+.tabela {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20vh; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #008791;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alterado para um tom mais claro */
+}
+
+.status-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    gap: 8px; /* Espaçamento entre a bolinha e o texto */
+}

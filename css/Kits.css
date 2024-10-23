@@ -206,3 +206,10 @@ body {
 }
 
 
+.hidden-label {
+  display: none; /* Oculta o rótulo */
+}
+
+.hidden-input {
+  display: none; /* Oculta o campo de data */
+}
